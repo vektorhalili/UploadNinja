@@ -1,12 +1,19 @@
 {% extends 'upload/base.html' %}
 
 {% block content %}
-
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
 <div class='container'>
-<form method="post" enctype="multipart/form-data">
+  <div class='centered text-center'>
+  <form method="post" action='/' enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Upload</button>
   </form>
+</div>
 </div>
 {% endblock %}

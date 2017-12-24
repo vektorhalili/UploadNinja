@@ -14,13 +14,16 @@ class IndexView(View):
         form = self.form_class()
         return render(request, self.template_name, {'form': form})
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
+        form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
+            form.save()
             return HttpResponseRedirect('/')
         return render(request, self.template_name, {'form' : form})
 
+
 class FileListView(ListView):
-    model = File
+    model = Files
+    template_name = 'upload/file_list.html'
 
 #class UploadView(FormView):
 #    template_name = 'index.html'

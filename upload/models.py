@@ -4,7 +4,7 @@ from upload.forms import *
 
 
 # Create your models here.
-class File(models.Model):
+class Files(models.Model):
     name = models.CharField(max_length=100)
     location = models.FileField(upload_to='files/')
     def __str__(self):
@@ -13,5 +13,5 @@ class File(models.Model):
 
 class FileForm(ModelForm):
     class Meta:
-        model = File
-        fields = ['name',]
+        model = Files
+        fields = ['name','location']

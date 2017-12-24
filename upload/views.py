@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from django.views.generic import View,ListView
+from django.views.generic import View,ListView,DetailView
 
 from .forms import *
 from .models import *
@@ -17,13 +17,16 @@ class IndexView(View):
         form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/files')
         return render(request, self.template_name, {'form' : form})
 
 
 class FileListView(ListView):
-    model = Files
-    template_name = 'upload/file_list.html'
+    model = File
+
+class FileDetailView(DetailView):
+    model = File
+
 
 #class UploadView(FormView):
 #    template_name = 'index.html'

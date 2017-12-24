@@ -3,17 +3,16 @@
 {% block content %}
 
 <div class='container'>
-
+</br>
+</br>
+</br>
 {% for file in object_list %}
 
 </br>
-</br>
-</br>
-</br>
-</br>
+
+
 <ul>
-<li> Name: {{ file.name }} </li>
-<li>File Name: {{ file.location }} </li>
+<li> Link: <a href='/file/{{ file.slug }}'>{{ file.location.name }}</a> </li>
 </ul>
 {% endfor %}
 

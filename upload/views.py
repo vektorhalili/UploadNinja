@@ -27,7 +27,9 @@ class FileListView(ListView):
 class FileDetailView(DetailView):
     model = File
 
-
+class FileDownloadView(View):
+    model = File
+    slug = None
 #class UploadView(FormView):
 #    template_name = 'index.html'
 #    form_class = FileForm

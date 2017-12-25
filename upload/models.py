@@ -7,7 +7,7 @@ from django.utils.text import slugify
 
 # Create your models here.
 class File(models.Model):
-    location = models.FileField(upload_to='files/')
+    location = models.FileField(upload_to='')
     slug = models.SlugField(unique=True)
     def __str__(self):
         return self.location.name
